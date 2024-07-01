@@ -2,7 +2,7 @@ from masks import get_mask_card_number, get_mask_account  # type: ignore
 
 
 def mask_account_card(input_data: str) -> str:
-    """ " Функция общей маскировки счета"""
+    """Base masking function."""
 
     cards: list = ["visa", "maestro", "mastercard"]
     data_list: list = input_data.split(" ")
@@ -13,7 +13,7 @@ def mask_account_card(input_data: str) -> str:
 
 
 def get_data(unfiltered_date: str) -> str:
-    """ " Функция возвращает отформатированную дату"""
+    """Data filtered function."""
 
     new_date: list = unfiltered_date[:10].split("-")
     return ".".join(new_date[::-1])
