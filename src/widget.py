@@ -1,4 +1,4 @@
-from masks import get_mask_card_number, get_mask_account  # type: ignore
+from masks import get_mask_account, get_mask_card_number  # type: ignore
 
 
 def mask_account_card(input_data: str) -> str:
