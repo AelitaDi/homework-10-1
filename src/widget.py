@@ -22,7 +22,7 @@ def get_data(unfiltered_date: str) -> str:
     if not "".join(new_date).isdigit() or len(new_date) != 3:
         print("Некорректный формат даты")
         return ""
-    elif int(new_date[0]) < 2000 or int(new_date[1]) > 12 or int(new_date[2]) > 31:
+    elif 1900 > int(new_date[0]) or int(new_date[0]) > 2024 or int(new_date[1]) > 12 or int(new_date[2]) > 31:
         print("Некорректный формат даты")
         return ""
     else:
