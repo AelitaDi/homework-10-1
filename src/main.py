@@ -1,4 +1,4 @@
-from processing import filter_by_state, sort_by_date  # type: ignore
+from src.processing import filter_by_state, sort_by_date
 
 if __name__ == "__main__":
     input_operation_list = [
