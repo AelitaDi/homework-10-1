@@ -1,3 +1,6 @@
+from typing import List
+
+
 def filter_by_state(operation_list: list[dict], state: str = "EXECUTED") -> list[dict]:
     """Function filter operations by state."""
 
@@ -8,7 +11,7 @@ def filter_by_state(operation_list: list[dict], state: str = "EXECUTED") -> list
 def sort_by_date(operation_list: list[dict], sort_flag: bool = True) -> list[dict]:
     """Function sort operations by date."""
 
-    date_list: list[str] = [operation.get("date") for operation in operation_list]
+    date_list: List[str] = [operation.get("date") for operation in operation_list]
     for operation_date in date_list:
         new_date: list = operation_date[:10].split("-")
         if not "".join(new_date).isdigit() or len(new_date) != 3:
