@@ -35,12 +35,4 @@ def card_number_generator(start: int, stop: int) -> Union[Generator, str]:
         for i in range(1, len(str(j)) + 1):
             card_number[-i] = str(j)[-i]
         card_number_str = "".join(card_number)
-        yield str(
-            card_number_str[0:4]
-            + " "
-            + card_number_str[4:8]
-            + " "
-            + card_number_str[8:12]
-            + " "
-            + card_number_str[12:]
-        )
+        yield " ".join([card_number_str[x: x + 4] for x in range(0, len(card_number_str), 4)])
