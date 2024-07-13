@@ -10,7 +10,7 @@
 ```
 git clone git@github.com:AelitaDi/homework-10-1.git
 ```
-2. Установите зависимости: mypy, flake8, black, isort
+2. Установите зависимости: mypy, flake8, black, isort, pytest, pytest-cov
 
 ## Применение:
 
@@ -25,6 +25,7 @@ git clone git@github.com:AelitaDi/homework-10-1.git
 0000 0000 0000 0005
 5. Функция `filter_by_currency` фильтрует банковские операции по валюте.
 6. Функция `transaction_descriptions` Выводит список описаний операций.
+7. Декоратор `log(filename):` создает отчет о работе функции и выводит его в консоль или в файл.  
 
 ## Тестирование:
 
