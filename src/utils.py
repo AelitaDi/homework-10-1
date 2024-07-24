@@ -23,10 +23,10 @@ def get_transaction_amount(transaction: dict) -> float:
     try:
         if transaction["operationAmount"]["currency"]["code"] != "RUB":
             return get_currency_conversion_to_rubles(
-                transaction["operationAmount"]["currency"]["code"], transaction["operationAmount"]["amount"]
+                transaction["operationAmount"]["currency"]["code"], float(transaction["operationAmount"]["amount"])
             )
         else:
-            return transaction["operationAmount"]["amount"]
+            return float(transaction["operationAmount"]["amount"])
     except Exception:
         print("Error operationAmount")
         return 0.0
