@@ -11,7 +11,6 @@ def get_data_from_csv(csv_path: str) -> list[dict]:
         reader = csv.DictReader(csv_file, delimiter=";")
         for row in reader:
             transaction_list.append(row)
-            break
 
     return transaction_list
 
@@ -26,10 +25,10 @@ def get_data_from_excel(excel_path: str) -> list[dict]:
         if excel_data["id"][i]:
             transaction_list.append(
                 {
-                    "id": (excel_data["id"][i]),
+                    "id": str(excel_data["id"][i]),
                     "state": excel_data["state"][i],
                     "date": excel_data["date"][i],
-                    "amount": excel_data["amount"][i],
+                    "amount": float(excel_data["amount"][i]),
                     "currency_name": excel_data["currency_name"][i],
                     "currency_code": excel_data["currency_code"][i],
                     "from": excel_data["from"][i],
@@ -42,3 +41,7 @@ def get_data_from_excel(excel_path: str) -> list[dict]:
 
     print(transaction_list[-5:])
     return transaction_list
+
+
+if __name__ == '__main__':
+    get_data_from_excel('data/transactions_excel.xlsx')
