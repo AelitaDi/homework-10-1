@@ -1,27 +1,52 @@
-from unittest.mock import patch
 from src.import_data import get_data_from_csv, get_data_from_excel
 
-@patch('src.import_data.get_data_from_excel')
-def test_get_data_from_excel(mock_get):
-    mock_get.return_value = [{
-                    "id": "7897654.0",
-                    "state": "EXECUTED",
-                    "date": "2020-10-06T23:30:05Z",
-                    "amount": '13642.0',
-                    "currency_name": 'Somoni',
-                    "currency_code": 'TJS',
-                    "from": "Discover 3233958335206913",
-                    "to": "American Express 0522499169905654",
-                    "description": "Открытие вклада",
-                }]
-    assert get_data_from_excel('..data/transactions_excel.xlsx') == [{
-                    "id": "7897654.0",
-                    "state": "EXECUTED",
-                    "date": "2020-10-06T23:30:05Z",
-                    "amount": '13642.0',
-                    "currency_name": 'Somoni',
-                    "currency_code": 'TJS',
-                    "from": "Discover 3233958335206913",
-                    "to": "American Express 0522499169905654",
-                    "description": "Открытие вклада",
-                }]
+PATH_1 = "test_transactions.csv"
+PATH_2 = "test_transactions_excel.xlsx"
+
+
+def test_get_data_from_csv():
+    assert get_data_from_csv(PATH_1) == [
+        {
+            "id": "650703",
+            "state": "EXECUTED",
+            "date": "2023-09-05T11:30:32Z",
+            "operationAmount": {"amount": "16210", "currency": {"name": "Sol", "code": "PEN"}},
+            "description": "Перевод организации",
+            "from": "Счет 58803664561298323391",
+            "to": "Счет 39745660563456619397",
+        },
+        {
+            "id": "3598919",
+            "state": "EXECUTED",
+            "date": "2020-12-06T23:00:58Z",
+            "operationAmount": {"amount": "29740", "currency": {"name": "Peso", "code": "COP"}},
+            "description": "Перевод с карты на карту",
+            "from": "Discover 3172601889670065",
+            "to": "Discover 0720428384694643",
+        },
+    ]
+    assert get_data_from_csv("") == []
+
+
+def test_get_data_from_excel():
+    assert get_data_from_excel(PATH_2) == [
+        {
+            "id": "650703",
+            "state": "EXECUTED",
+            "date": "2023-09-05T11:30:32Z",
+            "operationAmount": {"amount": "16210", "currency": {"name": "Sol", "code": "PEN"}},
+            "description": "Перевод организации",
+            "from": "Счет 58803664561298323391",
+            "to": "Счет 39745660563456619397",
+        },
+        {
+            "id": "3598919",
+            "state": "EXECUTED",
+            "date": "2020-12-06T23:00:58Z",
+            "operationAmount": {"amount": "29740", "currency": {"name": "Peso", "code": "COP"}},
+            "description": "Перевод с карты на карту",
+            "from": "Discover 3172601889670065",
+            "to": "Discover 0720428384694643",
+        },
+    ]
+    assert get_data_from_excel("") == []
