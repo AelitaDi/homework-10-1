@@ -10,7 +10,7 @@
 ```
 git clone git@github.com:AelitaDi/homework-10-1.git
 ```
-2. Установите зависимости: mypy, flake8, black, isort, pytest, pytest-cov, requests, python-dotenv
+2. Установите зависимости: mypy, flake8, black, isort, pytest, pytest-cov, requests, python-dotenv, pandas, openpyxl
 3. Для корректной работы функции конвертации валюты необходимо создать файл `.env` и заполнить его аналогично `.env.example`
 
 ## Применение:
@@ -33,6 +33,8 @@ https://apilayer.com/marketplace/exchangerates_data-api
 8. Функция `get_transactions_from_json` считывает данные из JSON-файла, преобразуя их в объект Python.
 9. Функция `get_transaction_amount` получает из словаря данные о сумме транзакции в рублях.
 10. Декоратор `log(filename):` создает отчет о работе функции и выводит его в консоль или в файл.
+11. В модуле `import_data.py` содержатся функции `get_data_from_csv` и `get_data_from_excel`, 
+которые позволяют считывать данные о финансовых операциях из файлов csv и excel.
 
 ## Тестирование:
 
