@@ -15,7 +15,7 @@ def mask_account_card(input_data: str) -> str:
         return ""
 
 
-def get_data(unfiltered_date: str) -> str:
+def get_date(unfiltered_date: str) -> str:
     """Data filtered function."""
 
     new_date: list = unfiltered_date[:10].split("-")
