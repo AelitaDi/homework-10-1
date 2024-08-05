@@ -62,7 +62,7 @@ def main():
     filter_by_rub = input('Выводить только рублевые транзакции? Да/Нет ')
     if filter_by_rub.lower() == 'да':
         rub_transactions = filter_by_currency(filtered_transactions, 'RUB')
-        filtered_transactions = list(rub_transactions)
+        filtered_transactions = list(rub_transactions)[:-1]
 
     filter_by_word = input('Программа: Отфильтровать список транзакций по определенному слову в описании? Да/Нет ')
     if filter_by_word.lower() == 'да':
